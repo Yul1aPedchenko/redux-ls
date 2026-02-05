@@ -1,6 +1,12 @@
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+
+import { Content } from "./Content";
 
 export const Hw29 = () => {
-    return (
-        <><h1>hw29</h1></>
-    )
-}
+  return (
+    <Provider store={store}>
+      <Content />
+    </Provider>
+  );
+};

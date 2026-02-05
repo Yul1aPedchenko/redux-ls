@@ -8,11 +8,9 @@ export const Homeworks = () => {
       <div className={s.home__wrap}>
         <aside className={s.home__aside}>
           <ul>
-            <li>
-              <NavLink to="hw29" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
-                29 - Знайомство з Redux, класичний Redux
-              </NavLink>
-            </li>
+            <NavLink to="hw29" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+              29 - Знайомство з Redux, класичний Redux
+            </NavLink>
           </ul>
         </aside>
         <main className={s.home__content}>
