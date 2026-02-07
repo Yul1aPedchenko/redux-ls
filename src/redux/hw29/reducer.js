@@ -3,7 +3,7 @@ export const initialState = {
   filter: "",
 };
 
-export const rootReducer = (state = initialState, action) => {
+export const hw29Reducer = (state = initialState, action) => {
   switch (action.type) {
     case "contacts/add": {
       const isInCintacts = state.contacts.find((contact) => {

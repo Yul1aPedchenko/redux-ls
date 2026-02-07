@@ -2,7 +2,7 @@ export const initialState = {
   count: 0,
 };
 
-export const rootReducer = (state = initialState, action) => {
+export const l29Reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'counter/increment':
       return {
