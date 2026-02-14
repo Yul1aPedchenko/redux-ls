@@ -13,6 +13,11 @@ export const Lessons = () => {
                 29 - Знайомство з Redux, класичний Redux
               </NavLink>
             </li>
+            <li>
+              <NavLink to="l31" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+                31 - Todo list
+              </NavLink>
+            </li>
           </ul>
         </aside>
         <main className={s.home__content}>
