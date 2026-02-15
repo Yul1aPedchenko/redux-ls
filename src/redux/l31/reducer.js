@@ -1,5 +1,5 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
-import { addTask, deleteTask, toggleComplete } from "./actions";
+import { addTask, deleteTask, toggleComplete, setStatusFilter } from "./actions";
 
 const tasksInitialState = [
   { id: 0, text: "Learn HTML and CSS", completed: true },
@@ -8,7 +8,6 @@ const tasksInitialState = [
   { id: 3, text: "Discover Redux", completed: false },
   { id: 4, text: "Build amazing apps", completed: false },
 ];
-
 const tasksReducer = createReducer(tasksInitialState, (builder) => {
   builder
     .addCase(addTask, (state, action) => {
@@ -31,6 +30,16 @@ const tasksReducer = createReducer(tasksInitialState, (builder) => {
     });
 });
 
+const filtersInitialState = {
+  status: "all",
+};
+const filterReducer = createReducer(filtersInitialState, (builder) => {
+  builder.addCase(setStatusFilter, (state, action) => {
+    state.status = action.payload;
+  });
+});
+
 export const todoListReducer = combineReducers({
   tasks: tasksReducer,
+  filter: filterReducer,
 });
