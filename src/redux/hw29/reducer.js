@@ -5,7 +5,7 @@ export const initialState = {
 
 export const hw29Reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "contacts/add": {
+    case "hw29/addContact": {
       const isInCintacts = state.contacts.find((contact) => {
         return contact.name.toLowerCase().trim() === action.payload.name.toLowerCase().trim() || contact.number.trim() === action.payload.number.trim();
       });
@@ -20,12 +20,12 @@ export const hw29Reducer = (state = initialState, action) => {
         return state;
       }
     }
-    case "contacts/delete":
+    case "hw31/deleteContact":
       return {
         ...state,
         contacts: state.contacts.filter((contact) => contact.id !== action.payload),
       };
-    case "filter/update":
+    case "hw29/updateFilter":
       return {
         ...state,
         filter: action.payload,

@@ -11,6 +11,9 @@ export const Homeworks = () => {
             <NavLink to="hw29" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
               29 - Знайомство з Redux, класичний Redux
             </NavLink>
+            <NavLink to="hw31" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+              31 - Redux Toolkit
+            </NavLink>
           </ul>
         </aside>
         <main className={s.home__content}>
