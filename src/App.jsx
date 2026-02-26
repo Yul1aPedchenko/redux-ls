@@ -9,6 +9,7 @@ import { L31 } from "./components/Lessons/L31/L31";
 
 import { Hw29 } from "./components/Homeworks/Hw29/Hw29";
 import { Hw31 } from "./components/Homeworks/Hw31/Hw31";
+import { Hw32 } from "./components/Homeworks/Hw32/Hw32";
 
 export const App = () => {
   return (
@@ -25,6 +26,7 @@ export const App = () => {
             <Route index element={<p style={{ padding: "16px" }}> Choose one of the homeworks</p>} />
             <Route path="hw29" element={<Hw29 />} />
             <Route path="hw31" element={<Hw31 />} />
+            <Route path="hw32" element={<Hw32 />} />
           </Route>
         </Route>
       </Routes>
