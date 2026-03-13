@@ -20,7 +20,7 @@ export const hw29Reducer = (state = initialState, action) => {
         return state;
       }
     }
-    case "hw31/deleteContact":
+    case "hw29/deleteContact":
       return {
         ...state,
         contacts: state.contacts.filter((contact) => contact.id !== action.payload),

@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { addContact, deleteContact, updateFilter } from "../../../redux/hw29/actions";
+import { addContact, deleteContact } from "./redux/contactsSlice";
+import { updateFilter } from "./redux/filterSlice";
 
 import { AddContact } from "./components/AddContact";
 import { ContactsList } from "./components/ContactsList";
 import { Filter } from "./components/Filter";
 import { Wrapper, SubWrapper } from "./Styles/Container";
 
-export const Hw29 = () => {
-  const contacts = useSelector((store) => store.hw29.contacts);
-  const filter = useSelector((store) => store.hw29.filter);
+export const Hw33 = () => {
   const dispatch = useDispatch();
+
+  const contacts = useSelector((store) => store.hw33.contacts);
+  const filter = useSelector((store) => store.hw33.filter);
 
   const onAddContact = (newContact) => {
     dispatch(addContact(newContact));

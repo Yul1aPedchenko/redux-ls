@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { addTask, deleteTask, toggleComplete } from "../../../redux/l31/actions";
+import { addTask, deleteTask, toggleComplete } from "./redux/actions";
 
 import { TasksCounter } from "./components/TasksCounter/TasksCounter";
 import { Filter } from "./components/Filter/Filter";
