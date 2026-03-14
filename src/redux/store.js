@@ -9,7 +9,7 @@ import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["hw33"],
+  // whitelist: ["hw33"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
