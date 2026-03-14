@@ -6,6 +6,7 @@ import { Homeworks } from "./pages/Homeworks/Homeworks";
 
 import { L29 } from "./features/L29/L29";
 import { L31 } from "./features/L31/L31";
+import { L34 } from "./features/L34/L34";
 
 import { Hw29 } from "./features/Hw29/Hw29";
 import { Hw31 } from "./features/Hw31/Hw31";
@@ -20,6 +21,7 @@ export const App = () => {
             <Route index element={<p style={{ padding: "16px" }}> Choose one of the lessons</p>} />
             <Route path="l29" element={<L29 />} />
             <Route path="l31" element={<L31 />} />
+            <Route path="l34" element={<L34 />} />
           </Route>
 
           <Route path="homeworks" element={<Homeworks />}>

@@ -17,6 +17,9 @@ export const Lessons = () => {
               <NavLink to="l31" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
                 31 - Todo list
               </NavLink>
+              <NavLink to="l34" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+                34 - Async Todo list
+              </NavLink>
             </li>
           </ul>
         </aside>

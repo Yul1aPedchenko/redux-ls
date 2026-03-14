@@ -5,6 +5,7 @@ import { hw32Reducer } from "../features/Hw32/redux/reducer";
 
 import { l29Reducer } from "../features/L29/redux/reducer";
 import { l31Reducer } from "../features/L31/redux/reducer";
+import { l34Reducer } from "../features/L34/redux/reducer";
 
 //? REDUX TOOLKIT
 import { combineReducers } from "@reduxjs/toolkit";
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers({
 
   l29: l29Reducer,
   l31: l31Reducer,
+  l34: l34Reducer,
 });
