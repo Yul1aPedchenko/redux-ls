@@ -27,6 +27,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_TODOS_API: ${{ secrets.VITE_TODOS_API }}
         run: npm run build
 
       - name: Upload artifact
@@ -36,8 +38,6 @@ jobs:
 
   deploy:
     needs: build
-    env:
-      VITE_TODOS_API: ${{ secrets.VITE_TODOS_API }}
     runs-on: ubuntu-latest
 
     steps:
