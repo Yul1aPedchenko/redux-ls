@@ -10,7 +10,6 @@ import { L31 } from "./features/L31/L31";
 import { Hw29 } from "./features/Hw29/Hw29";
 import { Hw31 } from "./features/Hw31/Hw31";
 import { Hw32 } from "./features/Hw32/Hw32";
-import { Hw33 } from "./features/Hw33/Hw33";
 
 export const App = () => {
   return (
@@ -28,7 +27,6 @@ export const App = () => {
             <Route path="hw29" element={<Hw29 />} />
             <Route path="hw31" element={<Hw31 />} />
             <Route path="hw32" element={<Hw32 />} />
-            <Route path="hw33" element={<Hw33 />} />
           </Route>
         </Route>
       </Routes>
