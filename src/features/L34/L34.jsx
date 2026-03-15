@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTaskAsync, deleteTaskAsync, fetchTasks, toggleTaskAsync } from "./redux/thunks/tasksThunk";
 
 import { TasksCounter } from "./components/TasksCounter/TasksCounter";
-// import { Filter } from "./components/Filter/Filter"; 
+import { Filter } from "./components/Filter/Filter"; 
 
 import s from "./L34.module.scss";
 import { useEffect } from "react";
@@ -15,8 +15,7 @@ export const L34 = () => {
   }, [dispatch]);
 
   const tasks = useSelector((store) => store.l34.tasks.items);
-  // const filter = useSelector((store) => store.l31.filter);
-  const filter = { status: "all" };
+  const filter = useSelector((store) => store.l34.filter);
 
   const getVisibleTasks = (tasks, filter) => {
     switch (filter.status) {
@@ -48,7 +47,7 @@ export const L34 = () => {
       <div className={s.todos__wrap}>
         <div className={s.todos__subwrap}>
           <TasksCounter />
-          {/* <Filter /> */}
+          <Filter />
         </div>
 
         <form onSubmit={handleSubmit} className={s.todos__form}>
