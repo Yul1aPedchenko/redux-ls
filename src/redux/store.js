@@ -10,6 +10,7 @@ const persistConfig = {
   key: "root",
   storage,
   // whitelist: ["hw33"],
+  blacklist: ['hw34'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

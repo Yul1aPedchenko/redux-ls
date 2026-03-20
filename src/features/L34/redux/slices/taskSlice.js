@@ -16,12 +16,10 @@ const tasksSlice = createSlice({
       .addCase(fetchTasks.pending, (state) => {
         state.isLoading = true;
       })
-
       .addCase(fetchTasks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
       })
-
       .addCase(fetchTasks.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

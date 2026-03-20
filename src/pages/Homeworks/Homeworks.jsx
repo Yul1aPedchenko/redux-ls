@@ -17,6 +17,9 @@ export const Homeworks = () => {
             <NavLink to="hw32" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
               32 - Redux Toolkit. Практика
             </NavLink>
+            <NavLink to="hw34" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+              34 - Redux Toolkit. Практика
+            </NavLink>
           </ul>
         </aside>
         <main className={s.home__content}>
