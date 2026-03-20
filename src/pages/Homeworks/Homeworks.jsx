@@ -18,7 +18,7 @@ export const Homeworks = () => {
               32 - Redux Toolkit. Практика
             </NavLink>
             <NavLink to="hw34" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
-              34 - Redux Toolkit. Практика
+              34 - Асинхронний Redux
             </NavLink>
           </ul>
         </aside>
