@@ -7,7 +7,7 @@ axios.defaults.baseURL = BASE_URL;
 
 export const fetchTasks = createAsyncThunk("l34/fetchTasks", async (_, thunkAPI) => {
   try {
-    const r = await axios.get("tasks");
+    const r = await axios.get("/tasks");
     return r.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
