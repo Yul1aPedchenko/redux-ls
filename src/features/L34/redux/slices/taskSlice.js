@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchTasks, addTaskAsync, deleteTaskAsync, toggleTaskAsync } from "../thunks/tasksThunk";
+import { fetchTasks, addTaskAsync, deleteTaskAsync, toggleTaskAsync, editTaskAsync } from "../thunks/tasksThunk";
 
 const tasksSlice = createSlice({
   name: "tasks",
@@ -34,6 +34,14 @@ const tasksSlice = createSlice({
       })
 
       .addCase(toggleTaskAsync.fulfilled, (state, action) => {
+        const index = state.items.findIndex((task) => task.id === action.payload.id);
+
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
+      })
+
+      .addCase(editTaskAsync.fulfilled, (state, action) => {
         const index = state.items.findIndex((task) => task.id === action.payload.id);
 
         if (index !== -1) {

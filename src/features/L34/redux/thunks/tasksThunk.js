@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_TODOS_API;
-
 axios.defaults.baseURL = BASE_URL;
 
 export const fetchTasks = createAsyncThunk("l34/fetchTasks", async (_, thunkAPI) => {
@@ -48,3 +47,12 @@ export const toggleTaskAsync = createAsyncThunk("l34/toggleTask", async (task, t
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const editTaskAsync = createAsyncThunk('l34/editTask', async ({id, text}, thunkAPI) => {
+  try {
+    const r = await axios.put(`/tasks/${id}`, {text});
+    return r.data;
+  } catch (error) {
+     return thunkAPI.rejectWithValue(error.message);
+  }
+})
