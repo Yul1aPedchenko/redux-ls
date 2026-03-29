@@ -20,6 +20,9 @@ export const Lessons = () => {
               <NavLink to="l34" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
                 34 - Async Todo list
               </NavLink>
+              <NavLink to="l36" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+                36 - Селектори та бібліотека Reselect
+              </NavLink>
             </li>
           </ul>
         </aside>
