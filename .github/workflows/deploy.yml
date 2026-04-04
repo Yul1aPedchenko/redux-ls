@@ -29,6 +29,7 @@ jobs:
       - name: Build
         env:
           VITE_TODOS_API: ${{ secrets.VITE_TODOS_API }}
+          VITE_BOOKS_AND_AUTHORS_API: ${{ secrets.VITE_BOOKS_AND_AUTHORS_API }}
         run: npm run build
 
       - name: Upload artifact
