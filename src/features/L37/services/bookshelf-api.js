@@ -1,4 +1,3 @@
-import axios from "axios";
 import { booksAndAuthorsApi } from "../../../api/BooksAndAuthorsApi";
 
 export async function fetchAuthors() {
@@ -12,6 +11,6 @@ export async function fetchBooks() {
 }
 
 export async function fetchBookById(bookId) {
-  const { data } = await booksAndAuthorsApi.get(`/books/${bookId}?_expand=author`);
+  const { data } = await booksAndAuthorsApi.get(`/books/${bookId}`);
   return data;
 }

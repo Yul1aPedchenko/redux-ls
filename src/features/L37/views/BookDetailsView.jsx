@@ -1,17 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
-import PageHeading from '../components/PageHeading/PageHeading';
-import * as bookShelfAPI from '../services/bookshelf-api';
+import { useParams, useLocation, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { booksSelectors } from "../redux/books";
+import PageHeading from "../components/PageHeading/PageHeading";
 
 export default function BookDetailsView() {
   const location = useLocation();
   const { slug } = useParams();
   const bookId = slug.match(/[a-z0-9]+$/)[0];
-  const [book, setBook] = useState(null);
 
-  useEffect(() => {
-    bookShelfAPI.fetchBookById(bookId).then(setBook);
-  }, [bookId]);
+  const book = useSelector((state) => booksSelectors.getBookWithAuthor(state, bookId));
 
   return (
     <>
@@ -19,14 +16,15 @@ export default function BookDetailsView() {
 
       {book && (
         <>
-          <Link to={location?.state?.from?.location ?? '/books'}>
-            {location?.state?.from?.label ?? 'Назад'}
-          </Link>
+          <Link to={location?.state?.from?.location ?? "../books"}>{location?.state?.from?.label ?? "Назад"}</Link>
+
           <hr />
 
           <img src={book.imgUrl} alt={book.title} />
           <h2>{book.title}</h2>
-          <p>Автор: {book.author.name}</p>
+
+          <p>Автор: {book.authorName}</p>
+
           <p>{book.descr}</p>
         </>
       )}
