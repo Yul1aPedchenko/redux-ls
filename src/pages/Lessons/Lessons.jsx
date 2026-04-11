@@ -26,6 +26,9 @@ export const Lessons = () => {
               <NavLink to="l37" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
                 37 - Селектори та бібліотека Reselect 2
               </NavLink>
+              <NavLink to="l38" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+                38 - Нормалізація стану
+              </NavLink>
             </li>
           </ul>
         </aside>

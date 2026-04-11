@@ -8,6 +8,7 @@ import { l31Reducer } from "../features/L31/redux/reducer";
 import { l34Reducer } from "../features/L34/redux/reducer";
 import { l36Reducer } from "../features/L36/redux/reducer";
 import { l37Reducer } from "../features/L37/redux/reducer";
+import { l38Reducer } from "../features/L38/redux/reducer";
 
 import { combineReducers } from "@reduxjs/toolkit";
 
@@ -21,5 +22,6 @@ export const rootReducer = combineReducers({
   l31: l31Reducer,
   l34: l34Reducer,
   l36: l36Reducer,
-  l37: l37Reducer
+  l37: l37Reducer,
+  l38: l38Reducer,
 });
