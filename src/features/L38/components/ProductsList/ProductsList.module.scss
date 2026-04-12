@@ -1,0 +1,16 @@
+.products {
+  width: 700px;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  &__item {
+    width: 300px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid burlywood;
+  }
+}

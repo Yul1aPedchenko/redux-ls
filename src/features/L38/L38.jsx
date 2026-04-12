@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { fetchProductsAsync } from "./redux/products/productsThunk";
 import { fetchCartAsync } from "./redux/cart/cartThunk";
 
-import { ProductsList } from "./components/ProductsList";
-import { Cart } from "./components/Cart";
+import { ProductsList } from "./components/ProductsList/ProductsList";
+import { Cart } from "./components/Cart/Cart";
+
+import s from './L38.module.scss';
 
 export const L38 = () => {
   const dispatch = useDispatch();
@@ -14,9 +16,10 @@ export const L38 = () => {
   }, [dispatch]);
   return (
     <>
-      <h2>l38</h2>
-      <ProductsList />
-      <Cart />
+      <div className={s.wrap}>
+        <ProductsList />
+        <Cart />
+      </div>
     </>
   );
 };
