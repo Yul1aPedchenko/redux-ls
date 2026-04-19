@@ -20,6 +20,9 @@ export const Homeworks = () => {
             <NavLink to="hw34" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
               34 - Асинхронний Redux
             </NavLink>
+            <NavLink to="hw39" className={({ isActive }) => (isActive ? `${s.home__item} ${s.active}` : s.home__item)}>
+              39 - Робота з користувачами
+            </NavLink>
           </ul>
         </aside>
         <main className={s.home__content}>
