@@ -1,35 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchContacts, addContactAsync, deleteContactAsync } from "./contactsThunk";
+import { fetchContacts, addContact, deleteContact } from "./contactsThunk";
 
-const contactsSlice = createSlice({
+const slice = createSlice({
   name: "contacts",
-  initialState: {
-    isLoading: false,
-    contacts: [],
-  },
-  reducers: {},
-
+  initialState: { items: [] },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchContacts.pending, (state) => {
-        state.isLoading = true;
+      .addCase(fetchContacts.fulfilled, (s, a) => {
+        s.items = a.payload;
       })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.contacts = action.payload;
+      .addCase(addContact.fulfilled, (s, a) => {
+        s.items.push(a.payload);
       })
-      .addCase(fetchContacts.rejected, (state) => {
-        state.isLoading = false;
-      })
-
-      .addCase(addContactAsync.fulfilled, (state, action) => {
-        state.contacts.push(action.payload);
-      })
-
-      .addCase(deleteContactAsync.fulfilled, (state, action) => {
-        state.contacts = state.contacts.filter((contact) => contact.id !== action.payload);
+      .addCase(deleteContact.fulfilled, (s, a) => {
+        s.items = s.items.filter((c) => c.id !== a.payload);
       });
   },
 });
 
-export const contactsReducer = contactsSlice.reducer;
+export const contactsReducer = slice.reducer;

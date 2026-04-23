@@ -1,23 +1,26 @@
+import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/auth/authThunk";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
 
   return (
-    <>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          dispatch(loginUser(form));
-        }}
-      >
-        <input placeholder="email" onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-        <input placeholder="password" type="password" onChange={(e) => setForm({ ...form, password: e.target.value })} required />
-        <button>Login</button>
-      </form>
-    </>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      onSubmit={(values) => {
+        dispatch(loginUser(values)).then(() => {
+          navigate("/homeworks/hw39/contacts");
+        });
+      }}
+    >
+      <Form>
+        <Field name="email" placeholder="email" />
+        <Field name="password" type="password" />
+        <button type="submit">Login</button>
+      </Form>
+    </Formik>
   );
 };

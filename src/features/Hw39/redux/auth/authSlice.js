@@ -1,33 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, loginUser } from "./authThunk";
+import { loginUser, registerUser, getCurrentUser, logoutUser } from "./authThunk";
 
 const initialState = {
-  user: { name: null, email: null, password: null },
-  token: null,
+  user: null,
+  token: localStorage.getItem("token") || null,
   isLoggedIn: false,
-  error: null,
+  isRefreshing: false,
 };
 
-const authSlice = createSlice({
+const slice = createSlice({
   name: "auth",
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-        state.error = null;
+      .addCase(registerUser.fulfilled, (s, a) => {
+        s.user = a.payload.user;
+        s.token = a.payload.token;
+        s.isLoggedIn = true;
       })
-      .addCase(registerUser.rejected, (state, action) => {
-        state.error = "User exists";
+      .addCase(loginUser.fulfilled, (s, a) => {
+        s.user = a.payload.user;
+        s.token = a.payload.token;
+        s.isLoggedIn = true;
       })
-      .addCase(loginUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
+      .addCase(getCurrentUser.pending, (s) => {
+        s.isRefreshing = true;
+      })
+      .addCase(getCurrentUser.fulfilled, (s, a) => {
+        s.user = a.payload;
+        s.isLoggedIn = true;
+        s.isRefreshing = false;
+      })
+      .addCase(getCurrentUser.rejected, (s) => {
+        s.isRefreshing = false;
+      })
+      .addCase(logoutUser.fulfilled, (s) => {
+        s.user = null;
+        s.token = null;
+        s.isLoggedIn = false;
       });
   },
 });
 
-export const authReducer = authSlice.reducer;
+export const authReducer = slice.reducer;
