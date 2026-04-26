@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormWrapper, Label, Input, AddButton } from "../Styles/AddContact";
+import { FormWrapper, Label, Input, AddButton } from "../../Styles/AddContact";
 
 export const AddContact = ({ onSubmit }) => {
   const [name, setName] = useState("");

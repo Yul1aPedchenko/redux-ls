@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "../redux/auth/authThunk";
+import { logoutUser } from "../../redux/auth/authThunk";
+import { buttonsData } from "./helper";
 import { useNavigate } from "react-router-dom";
 
 export const Menu = () => {
@@ -10,7 +11,13 @@ export const Menu = () => {
 
   return (
     <div>
-      <p>{email}</p>
+      {buttonsData.map((button) => {
+        return (
+          <button key={button.label} onClick={() => navigate(button.path)}>
+            {button.label}
+          </button>
+        );
+      })}
       <button
         onClick={() => {
           dispatch(logoutUser());

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { fetchContacts, addContact, deleteContact } from "../redux/contacts/contactsThunk";
 
-import { Menu } from "../components/Menu";
+import { Menu } from "../components/Menu/Menu";
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
