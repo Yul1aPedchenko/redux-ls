@@ -1,10 +1,12 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../redux/auth/authThunk";
+import { loginUser } from "../../redux/auth/authThunk";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 
-import { handleAuthSubmit } from "../helpers/authSubmit";
+import { handleAuthSubmit } from "../../helpers/authSubmit";
+
+import s from "./AuthPages.module.scss";
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
@@ -13,7 +15,7 @@ export const LoginPage = () => {
   const [error, setError] = useState("");
 
   return (
-    <>
+    <div className={s.wrapper}>
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => {
@@ -28,17 +30,22 @@ export const LoginPage = () => {
           });
         }}
       >
-        <Form>
-          <Field name="email" placeholder="email" />
-          <Field name="password" type="password" />
-          <button type="submit">Login</button>
+        <Form className={s.form}>
+          <Field className={s.input} name="email" placeholder="email" />
+          <Field className={s.input} name="password" type="password" />
 
-          {error && <p>{error}</p>}
+          <button className={s.button} type="submit">
+            Login
+          </button>
+
+          {error && <p className={s.error}>{error}</p>}
         </Form>
       </Formik>
 
       <p>Don't have an account?</p>
-      <Link to="/homeworks/hw39/register">Register</Link>
-    </>
+      <Link className={s.link} to="/homeworks/hw39/register">
+        Register
+      </Link>
+    </div>
   );
 };

@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
-import { fetchContacts, addContact, deleteContact } from "../redux/contacts/contactsThunk";
+import { fetchContacts, addContact, deleteContact } from "../../redux/contacts/contactsThunk";
 
-import { Menu } from "../components/Menu/Menu";
+import { Menu } from "../../components/Menu/Menu";
+
+import s from "./ContactsPage.module.scss";
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -39,25 +41,27 @@ export const ContactsPage = () => {
   };
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <Menu />
 
-      <form onSubmit={handleAdd}>
-        <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
-
-        <input value={number} onChange={(e) => setNumber(e.target.value)} placeholder="+380..." />
-
-        <button type="submit">Add</button>
+      <form className={s.form} onSubmit={handleAdd}>
+        <input className={s.input} value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" />
+        <input className={s.input} value={number} onChange={(e) => setNumber(e.target.value)} placeholder="+380..." />
+        <button className={s.button} type="submit">
+          Add
+        </button>
       </form>
 
       {contacts.length === 0 ? (
         <p>No contacts</p>
       ) : (
-        <ul>
+        <ul className={s.list}>
           {contacts.map((c) => (
-            <li key={c.id}>
+            <li className={s.item} key={c.id}>
               {c.name} — {c.number}
-              <button onClick={() => handleDelete(c.id)}>Delete</button>
+              <button className={s.delete} onClick={() => handleDelete(c.id)}>
+                Delete
+              </button>
             </li>
           ))}
         </ul>

@@ -1,10 +1,12 @@
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../redux/auth/authThunk";
+import { registerUser } from "../../redux/auth/authThunk";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { handleAuthSubmit } from "../helpers/authSubmit";
+import { handleAuthSubmit } from "../../helpers/authSubmit";
+
+import s from "./AuthPages.module.scss";
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -13,19 +15,9 @@ export const RegisterPage = () => {
   const [error, setError] = useState("");
 
   return (
-    <>
+    <div className={s.wrapper}>
       <Formik
         initialValues={{ name: "", email: "", password: "" }}
-        // onSubmit={async (values) => {
-        //   setError("");
-
-        //   try {
-        //     await dispatch(registerUser(values)).unwrap();
-        //     navigate("/homeworks/hw39/contacts");
-        //   } catch (e) {
-        //     setError(e || "Something went wrong");
-        //   }
-        // }}
         onSubmit={(values) => {
           handleAuthSubmit({
             values,
@@ -38,18 +30,23 @@ export const RegisterPage = () => {
           });
         }}
       >
-        <Form>
-          <Field name="name" placeholder="name" />
-          <Field name="email" placeholder="email" />
-          <Field name="password" type="password" />
-          <button type="submit">Register</button>
+        <Form className={s.form}>
+          <Field className={s.input} name="name" placeholder="name" />
+          <Field className={s.input} name="email" placeholder="email" />
+          <Field className={s.input} name="password" type="password" />
 
-          {error && <p>{error}</p>}
+          <button className={s.button} type="submit">
+            Register
+          </button>
+
+          {error && <p className={s.error}>{error}</p>}
         </Form>
       </Formik>
 
       <p>Already have an account?</p>
-      <Link to="/homeworks/hw39/login">Login</Link>
-    </>
+      <Link className={s.link} to="/homeworks/hw39/login">
+        Login
+      </Link>
+    </div>
   );
 };

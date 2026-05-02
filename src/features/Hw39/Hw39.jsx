@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
-import { HomePage } from "./pages/HomePage";
-import { LoginPage } from "./pages/LoginPage";
-import { RegisterPage } from "./pages/RegisterPage";
-import { ContactsPage } from "./pages/ContactsPage";
-import { ProfilePage } from "./pages/ProfilePage";
+import { HomePage } from "./pages/HomePage/HomePage";
+import { LoginPage } from "./pages/AuthPages/LoginPage";
+import { RegisterPage } from "./pages/AuthPages/RegisterPage";
+import { ContactsPage } from "./pages/ContactPage/ContactsPage";
+import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { PrivateRoute } from "./routes/PrivateRoute";
 
 export const Hw39 = () => {
